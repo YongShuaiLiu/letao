@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘管理系统-用户管理</title>
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/bootstrap-validator/css/bootstrapValidator.css">
+  <link rel="stylesheet" href="lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<!--左侧导航-->
+<div class="lt_aside">
+  <div class="brand">
+    <a href="index.html">乐淘商城</a>
+  </div>
+  <div class="user">
+    <img src="images/20171029212754.jpg" alt="">
+    <p>最叼田园犬</p>
+  </div>
+  <div class="nav">
+    <ul>
+      <li>
+        <a class="now" href="user.html">
+          <span class="glyphicon glyphicon-user"></span>
+          用户管理
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <span class="glyphicon glyphicon-list"></span>
+          分类管理
+        </a>
+        <div class="child" style="display: none;">
+          <a href="first.html">一级分类</a>
+          <a href="second.html">二级分类</a>
+        </div>
+      </li>
+      <li>
+        <a href="product.html">
+          <span class="glyphicon glyphicon-tags"></span>
+          商品管理
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+
+</div>
+
+<!--右侧内容-->
+<div class="lt_main">
+  <div class="lt_header">
+    <a class="pull-left icon_menu" href="javascript:;"><span class="glyphicon glyphicon-align-justify"></span></a>
+    <a class="pull-right icon_logout" href="javascript:;"><span class="glyphicon glyphicon-log-out"></span></a>
+  </div>
+  <div class="container-fluid">
+    <!--面包屑导航-->
+    <ol class="breadcrumb">
+      <li><a href="#">管理系统</a></li>
+      <li class="active">用户管理</li>
+    </ol>
+
+
+    <div class="lt_content">
+  <table class="table table-bordered table-hover">
+    <thead>
+    <tr>
+      <td width="10%">序号</td>
+      <td width="30%">用户名</td>
+      <td width="30%">手机号</td>
+      <td width="20%">状态</td>
+      <td width="10%">操作</td>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+      <div class="page pull-right">
+        <ul class="pagination"></ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!--模版引型-->
+<script type="text/template" id="tpl">
+  <% for(var i = 0 ; i < rows.length ; i ++){ %>
+  <tr>
+    <td><%=(page-1)*size+i+1%></td>
+    <td><%=rows[i].username%></td>
+    <td><%=rows[i].mobile%></td>
+    <td><%=rows[i].isDelete==1?'正常':'已禁用'%></td>
+    <td>
+      <%if(rows[i].isDelete==1){%>
+      <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" href="javascript:;" class="btn btn-sm btn-danger">禁用</a>
+      <%}else{%>
+      <a data-id="<%=rows[i].id%>" data-name="<%=rows[i].username%>" href="javascript:;" class="btn btn-sm btn-primary">启用</a>
+      <%}%>
+    </td>
+  </tr>
+  <% } %>
+</script>
+
+<!--退出按钮-->
+<div class="modal fade" tabindex="-1" id="logoutModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">温馨提示</h4>
+      </div>
+
+
+      <div class="modal-body">
+        <p class="text-danger"><span class="glyphicon glyphicon-info-sign"></span> 您确定要退出后台管理系统吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn_logout btn btn-primary">确定</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="lib/jquery/jquery.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+<script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="lib/echarts/echarts.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/user.js"></script>
+
+
+
+</body>
+</html>
