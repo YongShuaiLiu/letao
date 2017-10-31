@@ -7,7 +7,7 @@ $(function () {
 
     //发送ajax请求，获取后台的数据
     var currentPage = 1;
-    var pageSize = 8;
+    var pageSize = 17;
 
 
     //去后台获取数据，拿的currentPage页的数据
@@ -20,7 +20,6 @@ $(function () {
                 pageSize:pageSize
             },
             success:function (data) {
-                console.log(data);
                 var html = template("tpl", data);
                 $("tbody").html(html);
 

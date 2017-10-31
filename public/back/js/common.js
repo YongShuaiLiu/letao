@@ -49,6 +49,7 @@ $(".icon_menu").on("click", function () {
     $(".lt_aside").toggleClass("now");
     //慢慢的变长
     $(".lt_main").toggleClass("now");
+    $(".lt_header").toggleClass("now");
 });
 
 //共用的退出功能
