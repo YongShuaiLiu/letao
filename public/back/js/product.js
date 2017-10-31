@@ -7,11 +7,11 @@ $(function () {
 
     //思路：1. 获取商品数据
     var currentPage = 1;
-    var pageSize = 8;
+    var pageSize = 5;
 
     function render(){
+        //发送ajax请求
         $.ajax({
-
             type:"get",
             url:"/product/queryProductDetailList",
             data:{
@@ -21,7 +21,7 @@ $(function () {
             success:function (data) {
 
                 console.log(data);
-
+                //渲染到页面
                 $("tbody").html( template("tpl", data) );
 
                 //渲染分页
@@ -42,9 +42,9 @@ $(function () {
     render();
 
 
-    //点击添加，显示模态框
+    //点击事件添加 显示模态框
     $(".btn_add").on("click", function () {
-
+        //让模态框显示
         $("#addModal").modal("show");
 
         //渲染二级分类列表
@@ -64,12 +64,13 @@ $(function () {
 
     });
 
-    //给dropdown下所有的a标签注册点击事件
+    //给dropdown下所有的a 标签注册点击事件
     $(".dropdown-menu").on("click", "a", function () {
 
-        //获取a标签的文本，设置给dropdown-text
+        //获取a 标签的文本 设置给dropdown-text
         $(".dropdown-text").text(  $(this).text()  );
-        //获取到自定义属性data-id,设置给隐藏域
+
+        //获取到自定义属性data-id。设置给隐藏域
         $("#brandId").val(  $(this).data("id") );
 
         //改成通过状态
@@ -83,7 +84,7 @@ $(function () {
     $("#fileupload").fileupload({
         dataType:"json",
         done:function (e, data) {
-            //上传成功，将图片添加到img_box中
+            //上传成功，将突变添加都img-box中
             $(".img_box").append('<img src="'+data.result.picAddr+'" width="100" height="100">');
         }
     });
@@ -92,8 +93,10 @@ $(function () {
 
     var $form = $("#form");
     $form.bootstrapValidator({
+
         //默认不校验的配置
         excluded:[],
+        //表单验证
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
             invalid: 'glyphicon glyphicon-remove',
