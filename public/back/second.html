@@ -98,7 +98,7 @@
 </div>
 
 
-
+<!--退出按钮-->
 <div class="modal fade" tabindex="-1" id="logoutModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -149,6 +149,7 @@
             <div class="fileupload_box">
               <button class="btn btn-default">上传图片</button>
               <input id="fileupload" type="file" name="pic1" class="btn btn-default" data-url="/category/addSecondCategoryPic">
+              <input type="hidden" name="hot" value="1">
             </div>
 
           </div>
@@ -171,7 +172,7 @@
 
 
 
-
+<!--将商品信息渲染到页面-->
 <script type="text/html" id="tpl">
   {{each rows v i}}
   <tr>
@@ -182,7 +183,7 @@
   </tr>
   {{/each}}
 </script>
-
+<!--点击事件中获取一级类名-->
 <script type="text/html" id="tpl2">
   {{each rows v i}}
   <li><a href="javascript:;" data-id="{{v.id}}">{{v.categoryName}}</a></li>
@@ -190,13 +191,13 @@
 </script>
 
 <script src="lib/jquery/jquery.js"></script>
+<script src="lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="lib/jquery-fileupload/jquery.fileupload.js"></script>
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/bootstrap-validator/js/bootstrapValidator.js"></script>
 <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
-<script src="lib/artTemplate/template-web.js"></script>
-
 <script src="lib/nprogress/nprogress.js"></script>
-<script src="lib/echarts/echarts.min.js"></script>
+<script src="lib/artTemplate/template-web.js"></script>
 <script src="js/common.js"></script>
 <script src="js/second.js"></script>
 </body>
